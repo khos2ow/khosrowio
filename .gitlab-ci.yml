@@ -1,16 +1,12 @@
-image: registry.gitlab.com/pages/hugo:latest
-
-test:
-  script:
-    - hugo
-  except:
-    - master
+image: alpine:latest
 
 pages:
+  stage: deploy
   script:
-    - hugo
+  - echo 'Nothing to do...'
   artifacts:
     paths:
-       - public
+    - public
   only:
-    - master
+  - master
+
