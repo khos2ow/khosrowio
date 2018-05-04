@@ -16,7 +16,7 @@ deploy:
     - chmod 700 id_rsa
     - mkdir "${HOME}/.ssh"
     - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
-    - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ root@khosrow.io:/srv/nginx/khosrow.io/public
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
   environment:
     name: production
     url: https://khosrow.io
