@@ -10,8 +10,8 @@ test:
 deploy:
   stage: deploy
   before_script:
-    - apt update
-    - apt --yes --force-yes install ssh rsync
+    - apt-get update
+    - apt-get --yes --force-yes install ssh rsync
     - echo "Build with hugo" #hugo -t creative
   script:
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
