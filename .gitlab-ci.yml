@@ -9,8 +9,8 @@ test:
 deploy:
   stage: deploy
   before_script:
-    - apt-get update
-    - apt-get --yes --force-yes install ssh rsync
+    - apk update
+    - apk add ssh rsync
     - echo "Build with hugo" #hugo -t creative
   script:
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
