@@ -9,8 +9,7 @@ test:
 deploy:
   stage: deploy
   before_script:
-    - apk update
-    - apk add ssh rsync
+    - apk --update add --no-cache openssh rsync
     - echo "Build with hugo" #hugo -t creative
   script:
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
