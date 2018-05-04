@@ -1,12 +1,20 @@
 image: alpine:latest
+#image: registry.gitlab.com/pages/hugo:latest
 
-pages:
+test_site:
+  script:
+    - hugo
+  except:
+    - master
+
+deploy_prod:
   stage: deploy
   script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - public
+    - rsync -av --delete public /srv/nginx/khosrow.io/public
+  environment:
+    name: production
+    url: https://khosrow.io
   only:
-  - master
+    - master
+
 
