@@ -1,5 +1,4 @@
-image: alpine:latest
-#image: registry.gitlab.com/pages/hugo:latest
+image: registry.gitlab.com/pages/hugo:latest
 
 test:
   script:
