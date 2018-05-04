@@ -1,16 +1,24 @@
 image: alpine:latest
 #image: registry.gitlab.com/pages/hugo:latest
 
-test_site:
+test:
   script:
     - hugo
   except:
     - master
 
-deploy_prod:
+deploy:
   stage: deploy
+  before_script:
+    - apt update
+    - apt --yes --force-yes install ssh rsync
+    - echo "Build with hugo" #hugo -t creative
   script:
-    - rsync -av --delete public /srv/nginx/khosrow.io/public
+    - echo "${SSH_PRIVATE_KEY}" > id_rsa
+    - chmod 700 id_rsa
+    - mkdir "${HOME}/.ssh"
+    - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ root@khosrow.io:/srv/nginx/khosrow.io/public
   environment:
     name: production
     url: https://khosrow.io
