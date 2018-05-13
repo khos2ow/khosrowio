@@ -8,31 +8,38 @@
             {{ if gt $index 0 }}
               .
             {{ end }}
-            <a href="{{ .url }}" title="{{ .name }}"><i class="fa fa-{{ .icon }}"></i></a>
+            <a href="{{ .url }}" title="{{ .name }}"><i class="fa{{ .type }} fa-{{ .icon }}"></i></a>
           </li>
           {{ end }}
         </ul>
         {{ end }}
       </div>
     </section>
-  <section class="container">
-    {{ if not .Site.Params.hideCopyright }}
-      © 2018 <a href="https://khosrow.io/">khosrow.io</a>
-    {{ end }}
-
-    {{ if not .Site.Params.hideCredits}}
-      {{ if not .Site.Params.hideCopyright }} · {{ end }}
-      Powered with &#9829; by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    {{ end }}
-  </section>
-</footer>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115461719-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-115461719-1');
-</script>
+    <section class="container">
+      {{ if not .Site.Params.hideCopyright }}
+      <span class="copyright">
+        © 2018 
+        {{ if not .Site.Params.hideCopyrightOwner }}
+          <a href="{{ .Site.BaseURL }}">{{ .Site.Title | lower }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+  
+      {{ if not .Site.Params.hideCredits }}
+      <span class="credits">
+        {{ if not .Site.Params.hideCopyright }}<span class="credits-separator">·</span>{{ end }}
+        Powered with <i class="fas fa-heart"></i> by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      </span>
+      {{ end }}
+    </section>
+  </footer>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115461719-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-115461719-1');
+  </script>

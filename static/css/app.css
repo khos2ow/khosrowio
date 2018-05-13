@@ -3,17 +3,7 @@ p {
     margin-bottom: 2rem;
 }
 
-.footer {
-    line-height: 4rem;
-}
-.footer .centered {
-    height: 20px;
-}
-.footer .centered .about ul {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
+/** About **/
 .about-avatar {
     float: none;
     width: 250px;
@@ -27,5 +17,52 @@ p {
         float: left;
         margin-right: 20px;
         margin-bottom: 20px;
+    }
+}
+
+/** Content **/
+.content {
+    margin-bottom: 1.6rem;
+}
+
+/** Footer **/
+.footer {
+    height: auto;
+    line-height: 3rem;
+}
+.footer .centered {
+    height: auto;
+}
+.footer .centered .about ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.footer .copyright {
+    display: block;
+}
+.footer .credits {
+    display: block;
+}
+.footer .credits .credits-separator {
+    display: none;
+}
+
+@media(min-width:632px) {
+    .footer {
+        height: 7rem;
+        line-height: 4rem;
+    }
+    .footer .centered {
+        height: 3rem;
+    }
+    .footer .copyright {
+        display: inline-block;
+    }
+    .footer .credits {
+        display: inline-block;
+    }
+    .footer .credits .credits-separator {
+        display: inline-block;
     }
 }
