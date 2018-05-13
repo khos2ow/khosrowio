@@ -17,7 +17,7 @@
     </section>
   <section class="container">
     {{ if not .Site.Params.hideCopyright }}
-      © {{ .Site.LastChange.Format "2006" }} <a href="https://khosrow.io/">khosrow.io</a>
+      © {{ .Now.Year }} <a href="https://khosrow.io/">khosrow.io</a>
     {{ end }}
 
     {{ if not .Site.Params.hideCredits}}
