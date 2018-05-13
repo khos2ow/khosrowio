@@ -1,0 +1,15 @@
+p {
+    text-align: justify;
+}
+
+.footer {
+    line-height: 4rem;
+}
+.footer .centered {
+    height: 20px;
+}
+.footer .centered .about ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+

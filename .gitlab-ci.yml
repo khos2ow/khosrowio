@@ -10,7 +10,7 @@ deploy:
   stage: deploy
   before_script:
     - apk --update add --no-cache openssh rsync
-    - echo "Build with hugo" #hugo -t creative
+    - hugo -t coder
   script:
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
     - chmod 700 id_rsa

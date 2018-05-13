@@ -1,0 +1,45 @@
+baseurl = "https://khosrow.io"
+title = "Khosrow.io"
+theme = "coder"
+languagecode = "en"
+
+paginate = 20
+canonifyurls = true
+
+[params]
+    author = "Khosrow Moossavi"
+    description = "Khosrow Moossavi's personal website"
+    keywords = "khosrow,moossavi,personal,java,developer,architect,devops,blog"
+    info = "Cloud Native DevOps, Rock Climber"
+
+    hideCredits = false
+    hideCopyright = false
+
+    # Custom CSS
+	custom_css = ["css/app.css", "css/font-awesome.min.css"]
+
+[[params.social]]
+    name = "Github"
+    weight = 1
+    icon = "github"
+    url = "https://github.com/khos2ow/"
+[[params.social]]
+    name = "Gitlab"
+    weight = 2
+    icon = "gitlab"
+    url = "https://gitlab.com/khos2ow/"
+[[params.social]]
+    name = "Twitter"
+    weight = 3
+    icon = "twitter"
+    url = "https://twitter.com/khos2ow/"
+[[params.social]]
+    name = "LinkedIn"
+    weight = 4
+    icon = "linkedin"
+    url = "https://www.linkedin.com/in/khosrowmoossavi/"
+
+[[menu.main]]
+    name = "About"
+    weight = 1
+    url = "/about/"
