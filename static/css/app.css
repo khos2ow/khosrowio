@@ -13,3 +13,16 @@ p {
     margin-bottom: 0;
 }
 
+.about-avatar {
+    float: none;
+    width: 250px;
+    max-width: 40%;
+}
+
+@media(min-width:632px) {
+    .about-avatar {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+}

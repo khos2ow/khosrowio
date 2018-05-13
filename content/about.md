@@ -3,7 +3,7 @@ title = "About Me"
 slug = "about"
 +++
 
-<img src="images/avatar.png" style="float: left; width: 250px; max-width: 40%; margin-right: 20px; margin-bottom: 20px;" />
+<img src="images/avatar.png" class="about-avatar" />
 
 My name is Khosrow Moossavi, I'm a senior Java and Cloud Infrastructure Developer and DevOps engineer. Currently I'm
 working @ [CloudOps](https://www.cloudops.com/), maintaining and implementing ifrastructure of [cloud.ca](https://cloud.ca/).
