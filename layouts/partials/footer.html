@@ -1,0 +1,38 @@
+<footer class="footer">
+    <section class="container centered">
+      <div class="about">
+        {{ with .Site.Params.social }}
+        <ul>
+          {{ range $index, $el := sort . }}
+          <li>
+            {{ if gt $index 0 }}
+              .
+            {{ end }}
+            <a href="{{ .url }}" title="{{ .name }}"><i class="fa fa-{{ .icon }}"></i></a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </section>
+  <section class="container">
+    {{ if not .Site.Params.hideCopyright }}
+      © {{ .Site.LastChange.Format "2006" }} <a href="https://khosrow.io/">khosrow.io</a>
+    {{ end }}
+
+    {{ if not .Site.Params.hideCredits}}
+      {{ if not .Site.Params.hideCopyright }} · {{ end }}
+      Powered with &#9829; by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    {{ end }}
+  </section>
+</footer>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115461719-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115461719-1');
+</script>
