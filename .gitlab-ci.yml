@@ -20,6 +20,9 @@ deploy:
   environment:
     name: production
     url: https://khosrow.io
+  artifacts:
+    paths:
+    - public
   only:
     - master
 
