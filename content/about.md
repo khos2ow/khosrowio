@@ -1,6 +1,8 @@
 +++
-title = "About Me"
+date = "2018-05-13T01:27:39-04:00"
+draft = false
 slug = "about"
+title = "About Me"
 +++
 
 <img src="images/avatar.png" class="about-avatar" />
