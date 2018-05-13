@@ -22,12 +22,3 @@ deploy:
     url: https://khosrow.io
   only:
     - master
-
-pages:
-  script:
-    - hugo -t coder
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
