@@ -19,44 +19,45 @@ canonifyurls = true
     # Custom CSS
     custom_css = ["css/app.css", "css/fontawesome-all.min.css"]
 
-#[[params.social]]
-#    title = "Email"
-#    type = "r"
-#    icon = "envelope"
-#    url = "mailto:me@khosrow.io"
+[[params.social]]
+    name = "Email"
+    weight = 1
+    type = "r"
+    icon = "envelope"
+    url = "mailto:me@khosrow.io"
 [[params.social]]
     name = "Github"
-    weight = 1
+    weight = 2
     type = "b"
     icon = "github"
     url = "https://github.com/khos2ow/"
 [[params.social]]
     name = "Gitlab"
-    weight = 2
+    weight = 3
     type = "b"
     icon = "gitlab"
     url = "https://gitlab.com/khos2ow/"
 [[params.social]]
     name = "Docker Hub"
-    weight = 3
+    weight = 4
     type = "b"
     icon = "docker"
     url = "https://hub.docker.com/u/khos2ow"
 [[params.social]]
     name = "Twitter"
-    weight = 4
+    weight = 5
     type = "b"
     icon = "twitter"
     url = "https://twitter.com/khos2ow/"
 [[params.social]]
     name = "LinkedIn"
-    weight = 5
+    weight = 6
     type = "b"
     icon = "linkedin"
     url = "https://linkedin.com/in/khosrowmoossavi/"
 [[params.social]]
     name = "Stack Overflow"
-    weight = 6
+    weight = 7
     type = "b"
     icon = "stack-overflow"
     url = "https://stackoverflow.com/users/493615/khosrow"
