@@ -1,4 +1,4 @@
-image: golang
+image: debian:stretch-slim
 
 test:
   script:
@@ -9,7 +9,7 @@ test:
 deploy:
   stage: deploy
   before_script:
-    - apk --update add --no-cache openssh rsync
+    - apt-get update && apt-get install -y --no-install-recommends openssh-client rsync
     - ./binaries/hugo --theme coder
   script:
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
