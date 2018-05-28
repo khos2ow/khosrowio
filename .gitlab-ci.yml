@@ -1,8 +1,8 @@
-image: registry.gitlab.com/pages/hugo:latest
+image: golang
 
 test:
   script:
-    - hugo
+    - ./binaries/hugo --theme coder
   except:
     - master
 
@@ -10,7 +10,7 @@ deploy:
   stage: deploy
   before_script:
     - apk --update add --no-cache openssh rsync
-    - hugo -t coder
+    - ./binaries/hugo --theme coder
   script:
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
     - chmod 700 id_rsa
