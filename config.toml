@@ -9,7 +9,7 @@ googleAnalytics = "UA-115461719-1"
 
 [params]
     author = "Khosrow Moossavi"
-    description = "Khosrow Moossavi's personal website"
+    description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
     keywords = "khosrow,moossavi,personal,java,developer,architect,devops,blog"
     info = "Cloud Native DevOps, Rock Climber"
 
@@ -19,6 +19,11 @@ googleAnalytics = "UA-115461719-1"
 
     # Custom CSS
     custom_css = ["css/style-all.min.css", "css/fontawesome-all.min.css"]
+
+    # Twitter Cards
+    images = ["images/avatar.png"]
+    [social]
+        twitter = "khos2ow"
 
 [[params.social]]
     name = "Email"

@@ -1,8 +1,9 @@
 +++
-date = "2018-05-13T01:27:39-04:00"
+date = 2018-05-13T01:27:39-04:00
 draft = false
 slug = "about"
 title = "About Me"
+description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
 +++
 
 <img src="images/avatar.png" class="about-avatar" />
