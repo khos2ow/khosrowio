@@ -1,5 +1,8 @@
 image: debian:stretch-slim
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 test:
   script:
     - ./binaries/hugo --theme coder
