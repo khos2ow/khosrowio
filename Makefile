@@ -20,4 +20,4 @@ build: clean
 	rm -f $(LESS_DIR)/$(LESS_TMP_FILE)
 
 run: build
-	hugo serve --buildDrafts
+	./binaries/hugo server --buildDrafts
