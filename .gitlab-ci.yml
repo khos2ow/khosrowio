@@ -1,24 +1,58 @@
 image: debian:stretch-slim
+# image: khos2ow/ci-cd-tools:latest
+
+stages:
+  - test
+  - review
+  - deploy
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
+.ssh_packages: &SSH_PACKAGES |
+  apt-get update && apt-get install -y --no-install-recommends openssh-client rsync
+
 test:
+  # before_script:
+  #   - environment-info.sh
   script:
     - ./binaries/hugo --theme coder
+  except:
+    - master
+
+review:
+  stage: review
+  before_script:
+    # - environment-info.sh
+    - *SSH_PACKAGES
+    - echo "${SSH_PRIVATE_KEY}" > id_rsa
+    - chmod 700 id_rsa
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+  script:
+    - ./binaries/hugo --theme coder --baseURL https://review.khosrow.io
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
+  environment:
+    name: review
+    url: https://review.khosrow.io
+  only:
+    - branches
   except:
     - master
 
 deploy:
   stage: deploy
   before_script:
-    - apt-get update && apt-get install -y --no-install-recommends openssh-client rsync
-    - ./binaries/hugo --theme coder
-  script:
+    # - environment-info.sh
+    - *SSH_PACKAGES
     - echo "${SSH_PRIVATE_KEY}" > id_rsa
     - chmod 700 id_rsa
-    - mkdir "${HOME}/.ssh"
-    - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+  script:
+    - ./binaries/hugo --theme coder
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
   environment:
     name: production
