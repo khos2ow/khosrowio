@@ -19,7 +19,11 @@ enableRobotsTXT = true
     hideCredits = false
 
     # Custom CSS
-    custom_css = ["css/style-all.min.css", "css/fontawesome-all.min.css"]
+    custom_css = ["css/main.min.css", "css/fontawesome-all.min.css"]
+    custom_rtl_css = ["css/main-rtl.min.css"]
+
+    # RTL support
+    rtl = false
 
     # Twitter Cards
     images = ["images/avatar.png"]

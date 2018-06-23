@@ -18,8 +18,18 @@
     <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
     <link rel="stylesheet" href="{{ "css/style.min.css" | absURL }}">
 
+    {{ if .Site.Params.rtl}}
+      <link rel="stylesheet" href="{{ "css/style-rtl.min.css" | absURL }}">
+    {{ end }}
+
     {{ range .Site.Params.custom_css }}
       <link rel="stylesheet" href="{{ . | absURL }}">
+    {{ end }}
+
+    {{ if .Site.Params.rtl}}
+      {{ range .Site.Params.custom_rtl_css }}
+        <link rel="stylesheet" href="{{ . | absURL }}">
+      {{ end }}
     {{ end }}
 
     <link rel="icon" type="image/png" href="{{ "/images/favicon-32x32.png" | absURL }}" sizes="32x32">
@@ -35,7 +45,7 @@
     {{ .Hugo.Generator }}
   </head>
 
-  <body>
+  <body class="{{ if .Site.Params.rtl }}rtl{{ end }}">
     <main class="wrapper">
       {{ partial "header.html" . }}
 

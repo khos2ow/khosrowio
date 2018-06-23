@@ -1,23 +1,33 @@
+# LESS params
 LESS_DIR = ./static/less
-LESS_TMP_FILE = tmp.less
-CSS_DIR = ./static/css
-CSS_FILE = style-all.min.css
-CSS_TMP_FILE = tmp.css
-current_dir = $(shell pwd)
+LESS_FILE = main.less
+LESS_RTL_FILE = main-rtl.less
 
-.PHONY: clean build run
+# CSS params
+CSS_DIR = ./static/css
+CSS_FILE = main.min.css
+CSS_RTL_FILE = main-rtl.min.css
+CSS_TMP_FILE = tmp.css
+
+.PHONY: clean build build build-ltr build-rtl run
 
 clean:
 	rm -f $(CSS_DIR)/$(CSS_FILE)
-	rm -f $(CSS_DIR)/$(CSS_TMP_FILE)
-	rm -f $(LESS_DIR)/$(LESS_TMP_FILE)
+	rm -f $(CSS_DIR)/$(CSS_RTL_FILE)
 
-build: clean
-	for f in "`find $(LESS_DIR) -maxdepth 1 -type f`"; do cat $$f >> $(LESS_DIR)/$(LESS_TMP_FILE); done
-	lessc $(LESS_DIR)/$(LESS_TMP_FILE) > $(CSS_DIR)/$(CSS_TMP_FILE)
-	uglifycss $(CSS_DIR)/$(CSS_TMP_FILE) > $(CSS_DIR)/$(CSS_FILE)
+define build_less
+	lessc $(LESS_DIR)/$(1) > $(CSS_DIR)/$(CSS_TMP_FILE)
+	uglifycss $(CSS_DIR)/$(CSS_TMP_FILE) > $(CSS_DIR)/$(2)
 	rm -f $(CSS_DIR)/$(CSS_TMP_FILE)
-	rm -f $(LESS_DIR)/$(LESS_TMP_FILE)
+endef
+
+build: clean build-ltr build-rtl
+
+build-ltr:
+	$(call build_less,$(LESS_FILE),$(CSS_FILE))
+
+build-rtl:
+	$(call build_less,$(LESS_RTL_FILE),$(CSS_RTL_FILE))
 
 run: build
 	./binaries/hugo server --buildDrafts
