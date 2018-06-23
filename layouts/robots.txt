@@ -1,0 +1,9 @@
+User-agent: *
+
+{{ if .Site.BuildDrafts }}
+{{ range .Data.Pages }}
+Disallow: {{.RelPermalink}}
+{{ end }}
+{{ else }}
+Disallow:
+{{ end }}
