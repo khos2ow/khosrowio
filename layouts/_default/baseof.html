@@ -46,8 +46,8 @@
       {{ partial "footer.html" . }}
     </main>
 
-    {{ template "_internal/google_analytics.html" . }}
-
+    {{ if not .Site.BuildDrafts }}
+      {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
   </body>
-
 </html>

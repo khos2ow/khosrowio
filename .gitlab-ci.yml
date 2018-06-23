@@ -9,8 +9,13 @@ stages:
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
-.ssh_packages: &SSH_PACKAGES |
+.ssh_setup: &SSH_SETUP |
   apt-get update && apt-get install -y --no-install-recommends openssh-client rsync
+
+  echo "${SSH_PRIVATE_KEY}" > id_rsa
+  chmod 700 id_rsa
+  mkdir -p ~/.ssh
+  echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
 
 test:
   # before_script:
@@ -24,14 +29,9 @@ review:
   stage: review
   before_script:
     # - environment-info.sh
-    - *SSH_PACKAGES
-    - echo "${SSH_PRIVATE_KEY}" > id_rsa
-    - chmod 700 id_rsa
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    # - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+    - *SSH_SETUP
   script:
-    - ./binaries/hugo --theme coder --baseURL https://review.khosrow.io
+    - ./binaries/hugo --theme coder --baseURL https://review.khosrow.io --buildDrafts
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
   environment:
     name: review
@@ -45,12 +45,7 @@ deploy:
   stage: deploy
   before_script:
     # - environment-info.sh
-    - *SSH_PACKAGES
-    - echo "${SSH_PRIVATE_KEY}" > id_rsa
-    - chmod 700 id_rsa
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    # - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+    - *SSH_SETUP
   script:
     - ./binaries/hugo --theme coder
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
