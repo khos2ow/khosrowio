@@ -1,0 +1,4 @@
+---
+slug: "posts"
+title: "Posts"
+---

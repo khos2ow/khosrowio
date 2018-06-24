@@ -1,12 +1,21 @@
 baseurl = "https://khosrow.io"
 title = "Khosrow.io"
+
 theme = "coder"
-languagecode = "en"
+
+disqusShortname = ""
+googleAnalytics = "UA-115461719-1"
 
 paginate = 20
+preserveTaxonomyNames = true
+
 canonifyurls = true
-googleAnalytics = "UA-115461719-1"
 enableRobotsTXT = true
+
+pygmentsCodefences = true
+
+defaultContentLanguage = "en"
+languagecode = "en"
 
 [params]
     author = "Khosrow Moossavi"
@@ -30,7 +39,16 @@ enableRobotsTXT = true
         twitter = "khos2ow"
 
 [params.css]
-    version = "5"
+    version = "6"
+
+[[menu.main]]
+    name = "About"
+    weight = 1
+    url = "/about/"
+[[menu.main]]
+    name = "Posts"
+    weight = 2
+    url = "/posts/"
 
 [[params.social]]
     name = "Email"
@@ -74,8 +92,3 @@ enableRobotsTXT = true
     type = "b"
     icon = "stack-overflow"
     url = "https://stackoverflow.com/users/493615/khosrow"
-
-[[menu.main]]
-    name = "About"
-    weight = 1
-    url = "/about/"

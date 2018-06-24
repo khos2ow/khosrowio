@@ -1,3 +1,12 @@
+[noPosts]
+other = "No posts found."
+
+[noTags]
+other = "no tags"
+
+[noCategories]
+other = "no categories"
+
 [readingTime]
 one = "One min read"
 other = "{{ .Count }} mins read"
