@@ -1,3 +1,12 @@
+[menu_home]
+other = "Home"
+
+[menu_about]
+other = "About Me"
+
+[menu_posts]
+other = "Posts"
+
 [noPosts]
 other = "No posts found."
 
@@ -10,3 +19,24 @@ other = "no categories"
 [readingTime]
 one = "One min read"
 other = "{{ .Count }} mins read"
+
+[footer_social_envelope]
+other = "Email"
+
+[footer_social_github]
+other = "Github"
+
+[footer_social_gitlab]
+other = "Gitlab"
+
+[footer_social_docker]
+other = "Docker Hub"
+
+[footer_social_twitter]
+other = "Twitter"
+
+[footer_social_linkedin]
+other = "LinkedIn"
+
+[footer_social_stack-overflow]
+other = "Stack Overflow"

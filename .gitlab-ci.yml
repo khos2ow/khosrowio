@@ -1,5 +1,4 @@
 image: debian:stretch-slim
-# image: khos2ow/ci-cd-tools:latest
 
 stages:
   - test
@@ -18,9 +17,9 @@ variables:
   echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
 
 test:
-  # before_script:
-  #   - environment-info.sh
   script:
+    - apt-get update && apt-get install -y --no-install-recommends make
+    - make build-conf
     - ./binaries/hugo --theme coder
   except:
     - master
@@ -28,9 +27,10 @@ test:
 review:
   stage: review
   before_script:
-    # - environment-info.sh
     - *SSH_SETUP
   script:
+    - apt-get update && apt-get install -y --no-install-recommends make
+    - make build-conf
     - ./binaries/hugo --theme coder --baseURL https://review.khosrow.io --buildDrafts
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
   environment:
@@ -44,9 +44,9 @@ review:
 deploy:
   stage: deploy
   before_script:
-    # - environment-info.sh
     - *SSH_SETUP
   script:
+    - make build-conf
     - ./binaries/hugo --theme coder
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
   environment:

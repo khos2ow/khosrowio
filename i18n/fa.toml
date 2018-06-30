@@ -1,0 +1,42 @@
+[menu_home]
+other = "خانه"
+
+[menu_about]
+other = "درباره من"
+
+[menu_posts]
+other = "نوشته‌ها"
+
+[noPosts]
+other = "هیچ نوشته‌ای پیدا نشد."
+
+[noTags]
+other = "بدون تگ"
+
+[noCategories]
+other = "بدون دسته‌بندی"
+
+[readingTime]
+one = "یک دقیقه مطالعه"
+other = "{{ .Count }} دقیقه مطالعه"
+
+[footer_social_envelope]
+other = "ایمیل"
+
+[footer_social_github]
+other = "گیت‌هاب"
+
+[footer_social_gitlab]
+other = "گیت‌لب"
+
+[footer_social_docker]
+other = "داکر هاب"
+
+[footer_social_twitter]
+other = "توییتر"
+
+[footer_social_linkedin]
+other = "لینکدین"
+
+[footer_social_stack-overflow]
+other = "استک اوورفلو"

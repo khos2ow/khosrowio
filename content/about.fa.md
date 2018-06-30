@@ -1,13 +1,14 @@
-+++
-date = 2018-05-13T01:27:39-04:00
-draft = false
-slug = "about"
-title = "About Me"
-description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
-+++
+---
+draft: false
+date: 2018-05-13T01:27:39-04:00
+title: "درباره من"
+slug: "about"
+description: "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
+---
 
 <img src="images/avatar.png" class="about-avatar" />
 
+من خسرو موسوی هستم، برنامه‌نویس ارشد جاوا و زیرساخت‌های ابری و همچنین دواپس. در حال حاضر من در
 My name is Khosrow Moossavi, I'm a senior Java and Cloud Infrastructure Developer and DevOps engineer. Currently I'm
 working @ [CloudOps](https://www.cloudops.com/), maintaining and implementing ifrastructure of [cloud.ca](https://cloud.ca/).
 
