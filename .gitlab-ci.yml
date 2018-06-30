@@ -16,9 +16,13 @@ variables:
   mkdir -p ~/.ssh
   echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
 
+.install_make: &INSTALL_MAKE |
+  apt-get update && apt-get install -y --no-install-recommends make
+
 test:
+  before_script:
+    - *INSTALL_MAKE
   script:
-    - apt-get update && apt-get install -y --no-install-recommends make
     - make build-conf
     - ./binaries/hugo --theme coder
   except:
@@ -27,9 +31,9 @@ test:
 review:
   stage: review
   before_script:
+    - *INSTALL_MAKE
     - *SSH_SETUP
   script:
-    - apt-get update && apt-get install -y --no-install-recommends make
     - make build-conf
     - ./binaries/hugo --theme coder --baseURL https://review.khosrow.io --buildDrafts
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
@@ -44,8 +48,10 @@ review:
 deploy:
   stage: deploy
   before_script:
+    - *INSTALL_MAKE
     - *SSH_SETUP
   script:
+    - apt-get update && apt-get install -y --no-install-recommends make
     - make build-conf
     - ./binaries/hugo --theme coder
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
