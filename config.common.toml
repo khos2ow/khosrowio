@@ -3,7 +3,7 @@ title                  = "Khosrow.io"
 
 theme                  = "coder"
 
-disqusShortname        = ""
+disqusShortname        = "khosrow-io"
 googleAnalytics        = "UA-115461719-1"
 
 paginate               = 20
