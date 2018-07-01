@@ -13,3 +13,6 @@
     keywords    = "khosrow,moossavi,personal,java,developer,architect,devops,blog"
     info        = "Cloud Native DevOps, Rock Climber"
     rtl         = false
+
+[languages.en.params.copyright]
+    year        = "2018"

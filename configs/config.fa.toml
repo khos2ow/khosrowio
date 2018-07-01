@@ -13,3 +13,6 @@
     keywords    = "خسرو,موسوی,شخصی,جاوا,برنامه‌نویس,دواپس,معمار,بلاگ"
     info        = "Cloud Native دواپس، سنگ‌نورد"
     rtl         = true
+
+[languages.fa.params.copyright]
+    year        = "۱۳۹۷"

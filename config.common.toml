@@ -20,7 +20,7 @@ languagecode           = "en"
 [params]
     hideCopyright      = false
     hideCopyrightOwner = false
-    hideCredits        = false
+    hideCredits        = true
 
     custom_css         = ["css/main.min.css", "css/main-rtl.min.css"]
     custom_js          = ["js/main.min.js"]
