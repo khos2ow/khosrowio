@@ -1,18 +1,18 @@
 
 # === English ===
 [languages.en]
-    title        = "Khosrow.io"
-    weight       = 1
-    languageCode = "en"
-    languageName = "English"
+  title        = "Khosrow.io"
+  weight       = 1
+  languageCode = "en"
+  languageName = "English"
 
 [languages.en.params]
-    langcode    = "en"
-    author      = "Khosrow Moossavi"
-    description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
-    keywords    = "khosrow,moossavi,personal,java,developer,architect,devops,blog"
-    info        = "Cloud Native DevOps, Rock Climber"
-    rtl         = false
+  langcode    = "en"
+  author      = "Khosrow Moossavi"
+  description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
+  keywords    = "khosrow,moossavi,personal,java,developer,architect,devops,blog"
+  info        = "Cloud Native DevOps, Rock Climber"
+  rtl         = false
 
 [languages.en.params.copyright]
-    year        = "2018"
+  year        = "2018"

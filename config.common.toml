@@ -18,73 +18,73 @@ defaultContentLanguage = "en"
 languagecode           = "en"
 
 [params]
-    hideCopyright      = false
-    hideCopyrightOwner = false
-    hideCredits        = true
+  hideCopyright      = false
+  hideCopyrightOwner = false
+  hideCredits        = true
 
-    custom_css         = ["css/main.min.css", "css/main-rtl.min.css"]
-    custom_js          = ["js/main.min.js"]
+  custom_css         = ["css/main.min.css", "css/main-rtl.min.css"]
+  custom_js          = ["js/main.min.js"]
 
-    # Twitter Cards
-    images             = ["images/avatar.png"]
-    [social]
-        twitter        = "khos2ow"
+  # Twitter Cards
+  images             = ["images/avatar.png"]
+  [social]
+    twitter        = "khos2ow"
 
 # === CSS VERSION ===
 [params.css]
-    version = "6"
+  version = "6"
 
 # === MAIN MENU (NAME = I18N ID) ===
 [params.home]
-    name   = "menu_home"
-    url    = "/"
-    weight = 1
+  name   = "menu_home"
+  url    = "/"
+  weight = 1
 
 [[menu.main]]
-    name   = "menu_about"
-    weight = 2
-    url    = "/about/"
+  name   = "menu_about"
+  weight = 2
+  url    = "/about/"
 [[menu.main]]
-    name   = "menu_posts"
-    weight = 3
-    url    = "/posts/"
+  name   = "menu_posts"
+  weight = 3
+  url    = "/posts/"
 
 # === SOCIAL LINKS ===
 [[params.social]]
-    weight = 1
-    type   = "r"
-    icon   = "envelope"
-    url    = "mailto:me@khosrow.io"
+  weight = 1
+  type   = "r"
+  icon   = "envelope"
+  url    = "mailto:me@khosrow.io"
 [[params.social]]
-    weight = 2
-    type   = "b"
-    icon   = "github"
-    url    = "https://github.com/khos2ow/"
+  weight = 2
+  type   = "b"
+  icon   = "github"
+  url    = "https://github.com/khos2ow/"
 [[params.social]]
-    weight = 3
-    type   = "b"
-    icon   = "gitlab"
-    url    = "https://gitlab.com/khos2ow/"
+  weight = 3
+  type   = "b"
+  icon   = "gitlab"
+  url    = "https://gitlab.com/khos2ow/"
 [[params.social]]
-    weight = 4
-    type   = "b"
-    icon   = "docker"
-    url    = "https://hub.docker.com/u/khos2ow"
+  weight = 4
+  type   = "b"
+  icon   = "docker"
+  url    = "https://hub.docker.com/u/khos2ow"
 [[params.social]]
-    weight = 5
-    type   = "b"
-    icon   = "twitter"
-    url    = "https://twitter.com/khos2ow/"
+  weight = 5
+  type   = "b"
+  icon   = "twitter"
+  url    = "https://twitter.com/khos2ow/"
 [[params.social]]
-    weight = 6
-    type   = "b"
-    icon   = "linkedin"
-    url    = "https://linkedin.com/in/khosrowmoossavi/"
+  weight = 6
+  type   = "b"
+  icon   = "linkedin"
+  url    = "https://linkedin.com/in/khosrowmoossavi/"
 [[params.social]]
-    weight = 7
-    type   = "b"
-    icon   = "stack-overflow"
-    url    = "https://stackoverflow.com/users/493615/khosrow"
+  weight = 7
+  type   = "b"
+  icon   = "stack-overflow"
+  url    = "https://stackoverflow.com/users/493615/khosrow"
 
 # === TRANSLATIONS ===
 [languages]

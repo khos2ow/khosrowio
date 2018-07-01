@@ -1,18 +1,18 @@
 
 # === Farsi ===
 [languages.fa]
-    title        = "خسرو دات آی‌او"
-    weight       = 2
-    languageCode = "فا"
-    languageName = "فارسی"
+  title        = "خسرو دات آی‌او"
+  weight       = 2
+  languageCode = "فا"
+  languageName = "فارسی"
 
 [languages.fa.params]
-    langcode    = "fa"
-    author      = "خسرو موسوی"
-    description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
-    keywords    = "خسرو,موسوی,شخصی,جاوا,برنامه‌نویس,دواپس,معمار,بلاگ"
-    info        = "Cloud Native دواپس، سنگ‌نورد"
-    rtl         = true
+  langcode    = "fa"
+  author      = "خسرو موسوی"
+  description = "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
+  keywords    = "خسرو,موسوی,شخصی,جاوا,برنامه‌نویس,دواپس,معمار,بلاگ"
+  info        = "Cloud Native دواپس، سنگ‌نورد"
+  rtl         = true
 
 [languages.fa.params.copyright]
-    year        = "۱۳۹۷"
+  year        = "۱۳۹۷"
