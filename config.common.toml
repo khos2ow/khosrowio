@@ -1,21 +1,23 @@
-baseurl                = "https://khosrow.io"
-title                  = "Khosrow.io"
+baseurl                       = "https://khosrow.io"
+title                         = "Khosrow.io"
 
-theme                  = "coder"
+theme                         = "coder"
 
-disqusShortname        = "khosrow-io"
-googleAnalytics        = "UA-115461719-1"
+disqusShortname               = "khosrow-io"
+googleAnalytics               = "UA-115461719-1"
 
-paginate               = 20
-preserveTaxonomyNames  = true
+paginate                      = 20
+preserveTaxonomyNames         = true
 
-canonifyurls           = true
-enableRobotsTXT        = true
+canonifyurls                  = true
+enableRobotsTXT               = true
 
-pygmentsCodefences     = true
+PygmentsCodeFences            = true
+pygmentsUseClasses            = true
+pygmentsCodeFencesGuessSyntax = true
 
-defaultContentLanguage = "en"
-languagecode           = "en"
+defaultContentLanguage        = "en"
+languagecode                  = "en"
 
 [params]
   hideCopyright      = false
@@ -28,11 +30,11 @@ languagecode           = "en"
   # Twitter Cards
   images             = ["images/avatar.png"]
   [social]
-    twitter        = "khos2ow"
+    twitter          = "khos2ow"
 
 # === CSS VERSION ===
 [params.css]
-  version = "6"
+  version = "7"
 
 # === MAIN MENU (NAME = I18N ID) ===
 [params.home]
