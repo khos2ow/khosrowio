@@ -28,6 +28,7 @@ define build_less
 endef
 
 build: clean build-ltr build-rtl build-js build-conf
+	cd themes/coder && $(MAKE) build
 
 build-ltr:
 	$(call build_less,$(LESS_FILE),$(CSS_FILE))
@@ -40,6 +41,16 @@ build-js:
 
 build-conf:
 	cat config.common.toml configs/config.en.toml configs/config.fa.toml > config.toml
+
+watch:
+	while true; do \
+		inotifywait -e modify,create,delete \
+			$(LESS_DIR) \
+			$(JS_DIR)/$(JS_SRC_FILE) \
+			config.common.toml \
+			./configs \
+		&& $(MAKE) build; \
+	done
 
 run: build
 	./binaries/hugo server --theme coder --buildDrafts
