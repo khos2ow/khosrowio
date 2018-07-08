@@ -9,9 +9,9 @@
 [languages.fa.params]
   langcode    = "fa"
   author      = "خسرو موسوی"
-  description = "من خسرو موسوی هستم. Cloud Native دواپس و سنگ‌نورد."
-  keywords    = "خسرو,موسوی,شخصی,جاوا,برنامه‌نویس,دواپس,معمار,بلاگ"
-  info        = "Cloud Native دواپس، سنگ‌نورد"
+  description = "من خسرو موسوی هستم. Cloud Native دِوآپس و سنگ‌نورد."
+  keywords    = "خسرو,موسوی,شخصی,جاوا,برنامه‌نویس,دِوآپس,معمار,بلاگ"
+  info        = "Cloud Native دِوآپس، سنگ‌نورد"
   rtl         = true
 
 [languages.fa.params.copyright]
