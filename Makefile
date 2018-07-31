@@ -53,4 +53,4 @@ watch:
 	done
 
 run: build
-	./binaries/hugo server --theme coder --buildDrafts
+	./hugow server --theme coder --buildDrafts

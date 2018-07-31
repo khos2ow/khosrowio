@@ -8,6 +8,9 @@ stages:
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
+.install_dpes: &INSTALL_DEPS |
+  apt-get update && apt-get install -y --no-install-recommends wget tar make ca-certificates
+
 .ssh_setup: &SSH_SETUP |
   apt-get update && apt-get install -y --no-install-recommends openssh-client rsync
 
@@ -16,26 +19,23 @@ variables:
   mkdir -p ~/.ssh
   echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
 
-.install_make: &INSTALL_MAKE |
-  apt-get update && apt-get install -y --no-install-recommends make
-
 test:
   before_script:
-    - *INSTALL_MAKE
+    - *INSTALL_DEPS
   script:
     - make build-conf
-    - ./binaries/hugo --theme coder
+    - ./hugow --theme coder
   except:
     - master
 
 review:
   stage: review
   before_script:
-    - *INSTALL_MAKE
+    - *INSTALL_DEPS
     - *SSH_SETUP
   script:
     - make build-conf
-    - ./binaries/hugo --theme coder --baseURL https://review.khosrow.io --buildDrafts
+    - ./hugow --theme coder --baseURL https://review.khosrow.io --buildDrafts
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
   environment:
     name: review
@@ -48,12 +48,12 @@ review:
 deploy:
   stage: deploy
   before_script:
-    - *INSTALL_MAKE
+    - *INSTALL_DEPS
     - *SSH_SETUP
   script:
     - apt-get update && apt-get install -y --no-install-recommends make
     - make build-conf
-    - ./binaries/hugo --theme coder
+    - ./hugow --theme coder
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
   environment:
     name: production

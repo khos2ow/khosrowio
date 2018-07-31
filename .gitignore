@@ -1,2 +1,4 @@
 public/
 config.toml
+.hugo/*
+!.hugo/version
