@@ -33,8 +33,9 @@ languagecode                  = "en"
     twitter          = "khos2ow"
 
 # === CSS VERSION ===
-[params.css]
-  version = "7"
+[params.version]
+  css = "8"
+  js  = "7"
 
 # === MAIN MENU (NAME = I18N ID) ===
 [params.home]
