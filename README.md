@@ -1,4 +1,4 @@
-# Back stage of [khosrow.io](https://khosrow.io)
+# Backstage of [khosrow.io](https://khosrow.io)
 
 There are multiple `make` targets which are useful for development:
 
