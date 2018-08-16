@@ -55,3 +55,9 @@ watch:
 
 run: build
 	./hugow server --theme coder --buildDrafts
+
+review: build
+	./hugow --theme coder --baseURL https://review.khosrow.io --buildDrafts
+
+live: build
+	./hugow --theme coder

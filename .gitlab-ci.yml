@@ -1,15 +1,21 @@
 image: debian:stretch-slim
 
 stages:
-  - test
-  - review
   - deploy
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 .install_dpes: &INSTALL_DEPS |
-  apt-get update && apt-get install -y --no-install-recommends wget tar make ca-certificates
+  apt-get update && apt-get install -y --no-install-recommends wget tar make ca-certificates curl gnupg
+
+  curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  apt-get update && apt-get install -y --no-install-recommends nodejs
+
+  npm install less -g
+  npm install uglifycss -g
+  npm install uglify-js -g
+
 
 .ssh_setup: &SSH_SETUP |
   apt-get update && apt-get install -y --no-install-recommends openssh-client rsync
@@ -19,23 +25,13 @@ variables:
   mkdir -p ~/.ssh
   echo "${SSH_HOST_KEY}" > ~/.ssh/known_hosts
 
-test:
-  before_script:
-    - *INSTALL_DEPS
-  script:
-    - make build-conf
-    - ./hugow --theme coder
-  except:
-    - master
-
 review:
-  stage: review
+  stage: deploy
   before_script:
     - *INSTALL_DEPS
     - *SSH_SETUP
   script:
-    - make build-conf
-    - ./hugow --theme coder --baseURL https://review.khosrow.io --buildDrafts
+    - make review
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
   environment:
     name: review
@@ -45,15 +41,13 @@ review:
   except:
     - master
 
-deploy:
+live:
   stage: deploy
   before_script:
     - *INSTALL_DEPS
     - *SSH_SETUP
   script:
-    - apt-get update && apt-get install -y --no-install-recommends make
-    - make build-conf
-    - ./hugow --theme coder
+    - make live
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
   environment:
     name: production
