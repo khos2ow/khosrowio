@@ -1,5 +1,5 @@
 # LESS params
-LESS_DIR = ./static/less
+LESS_DIR = ./resources/less
 LESS_FILE = main.less
 LESS_RTL_FILE = main-rtl.less
 
@@ -10,8 +10,9 @@ CSS_RTL_FILE = main-rtl.min.css
 CSS_TMP_FILE = tmp.css
 
 # JS params
-JS_DIR = ./static/js
+JS_SRC_DIR = ./resources/js
 JS_SRC_FILE = main.js
+JS_MIN_DIR = ./static/js
 JS_MIN_FILE = main.min.js
 
 .PHONY: clean build build build-ltr build-rtl build-js build-conf run
@@ -37,7 +38,7 @@ build-rtl:
 	$(call build_less,$(LESS_RTL_FILE),$(CSS_RTL_FILE))
 
 build-js:
-	uglifyjs $(JS_DIR)/$(JS_SRC_FILE) > $(JS_DIR)/$(JS_MIN_FILE)
+	uglifyjs $(JS_SRC_DIR)/$(JS_SRC_FILE) > $(JS_MIN_DIR)/$(JS_MIN_FILE)
 
 build-conf:
 	cat config.common.toml configs/config.en.toml configs/config.fa.toml > config.toml
@@ -45,10 +46,10 @@ build-conf:
 watch:
 	while true; do \
 		inotifywait -e modify,create,delete \
-			$(LESS_DIR) \
-			$(JS_DIR)/$(JS_SRC_FILE) \
 			config.common.toml \
 			./configs \
+			$(LESS_DIR) \
+			$(JS_SRC_DIR) \
 		&& $(MAKE) build; \
 	done
 
