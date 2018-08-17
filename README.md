@@ -2,17 +2,19 @@
 
 There are multiple `make` targets which are useful for development:
 
-- `build-ltr` : build LTR less file(s) (`resources/less/main.less`)
-- `build-rtl` : build RTL less file(s) (`resources/less/main-rtl.less`)
-- `build-js` : build javascript file(s) (`resources/js/main.js`)
-- `build-conf` : concatinate config files:
+- `prepare-ltr` : prepare LTR less file(s) (`resources/less/main.less`)
+- `prepare-rtl` : prepare RTL less file(s) (`resources/less/main-rtl.less`)
+- `prepare-js` : prepare javascript file(s) (`resources/js/main.js`)
+- `prepare-conf` : concatinate config files:
   - `config.common.toml`
   - `configs/config.en.toml`
   - `configs/config.fa.toml`
-- `build` : execute all the above targets.
+- `prepare-theme` : prepare and build the theme (less and javascript file(s))
+- `prepare` : execute all the above targets
+- `build` : prepare and build the hugo site
 - `watch` : watch for any changes in the following and auto rebuild them:
   - `config.common.toml`
   - `configs/`
-  - `resources/js/`
-  - `resources/less/`
-- `run` : build the site and run it locally, the site will be accessible on http://localhost:1313/.
+  - `resources/`
+  - `themes/coder/resources/`
+- `run` : prepare and build the site and run it locally, the site will be accessible on http://localhost:1313/

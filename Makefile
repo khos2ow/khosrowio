@@ -1,13 +1,16 @@
+# Temp build directory
+TMP_DIR = /tmp
+TMP_CSS_FILE = tmp.css
+
 # LESS params
 LESS_DIR = ./resources/less
-LESS_FILE = main.less
+LESS_LTR_FILE = main.less
 LESS_RTL_FILE = main-rtl.less
 
 # CSS params
 CSS_DIR = ./static/css
-CSS_FILE = main.min.css
+CSS_LTR_FILE = main.min.css
 CSS_RTL_FILE = main-rtl.min.css
-CSS_TMP_FILE = tmp.css
 
 # JS params
 JS_SRC_DIR = ./resources/js
@@ -15,49 +18,47 @@ JS_SRC_FILE = main.js
 JS_MIN_DIR = ./static/js
 JS_MIN_FILE = main.min.js
 
-.PHONY: clean build build build-ltr build-rtl build-js build-conf run
-
-clean:
-	rm -f $(CSS_DIR)/$(CSS_FILE)
-	rm -f $(CSS_DIR)/$(CSS_RTL_FILE)
-	rm -f $(JS_DIR)/$(JS_MIN_FILE)
+.PHONY: prepare prepare-ltr prepare-rtl prepare-js prepare-conf prepare-theme build run watch
 
 define build_less
-	lessc $(LESS_DIR)/$(1) > $(CSS_DIR)/$(CSS_TMP_FILE)
-	uglifycss $(CSS_DIR)/$(CSS_TMP_FILE) > $(CSS_DIR)/$(2)
-	rm -f $(CSS_DIR)/$(CSS_TMP_FILE)
+	lessc $(LESS_DIR)/$(1) > $(TMP_DIR)/$(TMP_CSS_FILE)
+	uglifycss $(TMP_DIR)/$(TMP_CSS_FILE) > $(CSS_DIR)/$(2)
+	rm -f $(TMP_DIR)/$(TMP_CSS_FILE)
 endef
 
-build: clean build-ltr build-rtl build-js build-conf
-	cd themes/coder && $(MAKE) build
+prepare: prepare-theme prepare-ltr prepare-rtl prepare-js prepare-conf
 
-build-ltr:
-	$(call build_less,$(LESS_FILE),$(CSS_FILE))
+prepare-ltr:
+	$(call build_less,$(LESS_LTR_FILE),$(CSS_LTR_FILE))
 
-build-rtl:
+prepare-rtl:
 	$(call build_less,$(LESS_RTL_FILE),$(CSS_RTL_FILE))
 
-build-js:
+prepare-js:
 	uglifyjs $(JS_SRC_DIR)/$(JS_SRC_FILE) > $(JS_MIN_DIR)/$(JS_MIN_FILE)
 
-build-conf:
+prepare-conf:
 	cat config.common.toml configs/config.en.toml configs/config.fa.toml > config.toml
+
+prepare-theme:
+	cd themes/coder && $(MAKE) prepare
+
+build: prepare
+	rm -rf public
+	./hugow --theme coder $(filter-out $@,$(MAKECMDGOALS))
+
+run: prepare
+	./hugow server --theme coder --disableFastRender --buildDrafts $(filter-out $@,$(MAKECMDGOALS))
 
 watch:
 	while true; do \
-		inotifywait -e modify,create,delete \
+		inotifywait --recursive -e modify,create,delete \
 			config.common.toml \
-			./configs \
-			$(LESS_DIR) \
-			$(JS_SRC_DIR) \
-		&& $(MAKE) build; \
+			configs \
+			resources \
+			themes/coder/resources \
+		&& $(MAKE) prepare; \
 	done
 
-run: build
-	./hugow server --theme coder --buildDrafts
-
-review: build
-	./hugow --theme coder --baseURL https://review.khosrow.io --buildDrafts
-
-live: build
-	./hugow --theme coder
+%:
+	@:

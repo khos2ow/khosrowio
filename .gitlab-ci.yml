@@ -9,7 +9,7 @@ variables:
 review:
   stage: deploy
   script:
-    - make review
+    - make build -- --buildDrafts --baseURL https://review.khosrow.io
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i ~/.ssh/id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/review
   environment:
     name: review
@@ -22,7 +22,7 @@ review:
 live:
   stage: deploy
   script:
-    - make live
+    - make build
     - rsync -hrvz --delete --exclude=_ -e 'ssh -i ~/.ssh/id_rsa' public/ publisher@khosrow.io:/srv/nginx/khosrow.io/public
   environment:
     name: production
