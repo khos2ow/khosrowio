@@ -24,8 +24,8 @@ languagecode                  = "en"
   hideCopyrightOwner = false
   hideCredits        = true
 
-  custom_css         = ["css/main.min.css", "css/main-rtl.min.css"]
-  custom_js          = ["js/main.min.js"]
+  custom_css         = []
+  custom_js          = []
 
   # Twitter Cards
   images             = ["images/avatar.png"]
