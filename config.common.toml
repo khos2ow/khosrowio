@@ -1,7 +1,7 @@
 baseurl                       = "https://khosrow.io"
 title                         = "Khosrow.io"
 
-theme                         = "coder"
+theme                         = "hugo-coder"
 
 disqusShortname               = "khosrow-io"
 googleAnalytics               = "UA-115461719-1"
