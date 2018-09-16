@@ -1,4 +1,6 @@
-.PHONY: prepare build run watch
+.PHONY: all prepare build run watch
+
+all: build
 
 prepare:
 	cat config.common.toml configs/config.en.toml configs/config.fa.toml > config.toml
