@@ -10,7 +10,7 @@ build: prepare
 	./hugow --theme hugo-coder $(filter-out $@,$(MAKECMDGOALS))
 
 run: prepare
-	./hugow server --theme hugo-coder --disableFastRender --buildDrafts $(filter-out $@,$(MAKECMDGOALS))
+	./hugow server --theme hugo-coder --disableFastRender --buildDrafts --buildFuture $(filter-out $@,$(MAKECMDGOALS))
 
 watch:
 	while true; do \
