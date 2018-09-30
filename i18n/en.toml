@@ -10,8 +10,16 @@ other = "Posts"
 [noPosts]
 other = "No posts found."
 
+[tag]
+one = "Tag"
+other = "Tags"
+
 [noTags]
 other = "no tags"
+
+[category]
+one = "Category"
+other = "Categories"
 
 [noCategories]
 other = "no categories"

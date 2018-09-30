@@ -10,8 +10,16 @@ other = "نوشته‌ها"
 [noPosts]
 other = "هیچ نوشته‌ای پیدا نشد."
 
+[tag]
+one = "تگ"
+other = "تگ‌ها"
+
 [noTags]
 other = "بدون تگ"
+
+[category]
+one = "دسته‌بندی"
+other = "دسته‌بندی‌ها"
 
 [noCategories]
 other = "بدون دسته‌بندی"
