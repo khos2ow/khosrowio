@@ -1,12 +1,14 @@
-.PHONY: all prepare build run watch
+.PHONY: all clean prepare build run watch
 
 all: build
+
+clean:
+	rm -rf public
 
 prepare:
 	cat config.common.toml configs/config.en.toml configs/config.fa.toml > config.toml
 
-build: prepare
-	rm -rf public
+build: clean prepare
 	./hugow --theme hugo-coder $(filter-out $@,$(MAKECMDGOALS))
 
 run: prepare

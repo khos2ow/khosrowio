@@ -2,6 +2,7 @@
 
 There are multiple `make` targets which are useful for development:
 
+- `clean` : remove `public` folder
 - `prepare` : concatenate config files:
   - `config.common.toml`
   - `configs/config.en.toml`
