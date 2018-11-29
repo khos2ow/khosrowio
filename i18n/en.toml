@@ -28,6 +28,9 @@ other = "no categories"
 one = "One min read"
 other = "{{ .Count }} mins read"
 
+[readMore]
+other = "Read more..."
+
 [footer_social_envelope]
 other = "Email"
 
