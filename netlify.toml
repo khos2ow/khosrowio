@@ -1,0 +1,9 @@
+# netlify configuration
+[build]
+  publish = "public/"
+
+[context.production]
+  command = "make build -- --baseURL $DEPLOY_PRIME_URL"
+
+[context.deploy-preview]
+  command = "make build -- --enableGitInfo --buildFuture --baseURL $DEPLOY_PRIME_URL"
