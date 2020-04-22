@@ -32,6 +32,9 @@ languagecode                  = "en"
   [social]
     twitter          = "khos2ow"
 
+[markup.goldmark.renderer]
+  unsafe= true
+
 # === CSS VERSION ===
 [params.version]
   css = "8"
