@@ -1,9 +1,12 @@
 # netlify configuration
 [build]
   publish = "public/"
+  command = "make build"
 
-[context.production]
-  command = "make build -- --baseURL $DEPLOY_PRIME_URL"
+[context.production.environment]
+  # this controls our robots.txt
+  HUGO_ENV = "production"
+  HUGO_BASEURL = "https://khosrow.netlify.app/"
 
 [context.deploy-preview]
   command = "make build -- --enableGitInfo --buildFuture --baseURL $DEPLOY_PRIME_URL"
