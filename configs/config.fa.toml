@@ -16,4 +16,5 @@
   rtl           = true
 
 [languages.fa.params.copyright]
+  since         = "۱۳۹۶"
   year          = "۱۳۹۹"

@@ -20,20 +20,33 @@ defaultContentLanguage        = "en"
 languagecode                  = "en"
 
 [params]
+  hideFooter         = false
   hideCopyright      = false
   hideCopyrightOwner = false
   hideCredits        = true
+  commit             = "https://github.com/khos2ow/khosrowio/tree/"
 
-  custom_css         = []
-  custom_js          = []
+  colorscheme     = "light"
+
+  maxSeeAlsoItems = 5
+
+  custom_scss = ["scss/khosrow.scss"]
+  custom_css  = []
+  custom_js   = []
 
   # Twitter Cards
-  images             = ["images/avatar.png"]
+  images = ["images/avatar.png"]
+
   [social]
-    twitter          = "khos2ow"
+    twitter = "khos2ow"
 
 [markup.goldmark.renderer]
   unsafe= true
+
+[taxonomies]
+  category = "categories"
+  series   = "series"
+  tag      = "tags"
 
 # === CSS VERSION ===
 [params.version]

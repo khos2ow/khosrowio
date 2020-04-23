@@ -3,10 +3,13 @@ draft: false
 date: 2018-06-30T21:46:32-04:00
 lastmod: 2018-06-30T21:46:32-04:00
 title: "Hello World, again"
+description: ""
 slug: "hello-world-again"
 tags:
   - general
 categories:
+externalLink: ""
+series: []
 ---
 
 Well, `Hello World` again!

@@ -7,7 +7,7 @@ slug: "about"
 description: "من خسرو موسوی هستم. Cloud Native دِوآپس و سنگ‌نورد."
 ---
 
-<img src="images/avatar.png" class="about-avatar" />
+<img src="/images/avatar.png" class="about-avatar" />
 
 من خسرو موسوی هستم، Cloud Native دِوآپس و برنامه‌نویس زیرساخت‌های ابری با تجربه زیاد با زبان برنامه‌نویسی جاوا. جدیدا شروع به کار
 با زبان Golang هم کرده‌ام. من عاشق automation هستم، به قول اون دوست عزیزمون <em>«!Automate all the things»</em>. به‌صورت روزمره من از ابزارهای مختلفی از جمله
