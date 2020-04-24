@@ -9,4 +9,4 @@
   HUGO_BASEURL = "https://khosrow.netlify.app/"
 
 [context.deploy-preview]
-  command = "make build -- --enableGitInfo --buildFuture --baseURL $DEPLOY_PRIME_URL"
+  command = "make build -- --buildFuture --baseURL $DEPLOY_PRIME_URL"

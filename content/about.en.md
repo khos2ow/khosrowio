@@ -7,7 +7,7 @@ slug: "about"
 description: "My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Rock Climber."
 ---
 
-<img src="images/avatar.png" class="about-avatar" />
+<img src="/images/avatar.png" class="about-avatar" />
 
 My name is Khosrow Moossavi, I'm a Cloud Native DevOps and Infrastructure Developer with extensive experience of Java. Recently I started
 coding with Golang. I'm in love with automation, as a wise man once said *"Automate all the things!"*, on that note, on a daily basis, I

@@ -29,7 +29,7 @@ one = "One min read"
 other = "{{ .Count }} mins read"
 
 [readMore]
-other = "Read more..."
+other = "read more..."
 
 [footer_social_envelope]
 other = "Email"

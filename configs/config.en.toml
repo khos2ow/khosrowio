@@ -16,4 +16,5 @@
   rtl           = false
 
 [languages.en.params.copyright]
-  year          = "2020"
+  since         = 2017
+  year          = 2020
