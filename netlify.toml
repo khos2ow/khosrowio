@@ -6,7 +6,7 @@
 [context.production.environment]
   # this controls our robots.txt
   HUGO_ENV = "production"
-  HUGO_BASEURL = "https://khosrow.netlify.app/"
+  HUGO_BASEURL = "https://khosrow.io/"
 
 [context.deploy-preview]
   command = "make build -- --buildFuture --baseURL $DEPLOY_PRIME_URL"
